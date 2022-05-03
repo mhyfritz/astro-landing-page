@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon";
 ---
 
 <html lang="en">
@@ -17,7 +18,10 @@
     <title>Astro</title>
   </head>
   <body>
-    <h1 class="text-3xl font-extrabold text-indigo-500">Astro</h1>
+    <h1 class="flex items-center gap-1 text-3xl font-extrabold text-indigo-500">
+      <Icon class="h-10" pack="mdi" name="rocket" />
+      <span>Astro</span>
+    </h1>
     <p>Lorem ipsum dolor sit amet.</p>
   </body>
 </html>
