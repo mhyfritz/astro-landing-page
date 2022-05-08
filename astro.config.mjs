@@ -5,7 +5,7 @@ export default defineConfig({
   integrations: [tailwind()],
   vite: {
     ssr: {
-      external: ["svgo"],
+      external: ["@11ty/eleventy-img", "svgo"],
     },
   },
 });

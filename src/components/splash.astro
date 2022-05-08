@@ -1,18 +1,55 @@
 ---
+import { generateImage } from "astro-eleventy-img";
 import { Icon } from "astro-icon";
+import Starfield from "~/components/starfield.astro";
+
+const widths = [400, 800];
+const sizes = "(min-width: 640px) 42vw, 67vw";
+
+const { webp, avif, png } = generateImage("src/assets/astronaut.png", {
+  widths,
+  formats: ["webp", "avif", "png"],
+});
+
+const avifSrcset = avif.map(({ srcset }) => srcset).join(",");
+const webpSrcset = webp.map(({ srcset }) => srcset).join(",");
+const pngSrcset = png.map(({ srcset }) => srcset).join(",");
 ---
 
 <section class="h-full bg-black">
-  <div class="relative flex items-center justify-center h-full">
-    <h2>
-      <div class="flex flex-col gap-2 sm:gap-4">
-        <Icon name="logomark" class="h-24 text-white md:h-32" />
-        <div
-          class="font-extrabold tracking-tighter text-center text-8xl text-gradient gradient-default"
-        >
-          Build fast<br /> websites,<br /> faster.
-        </div>
+  <Starfield />
+  <div class="relative grid h-full sm:grid-cols-2 place-items-center">
+    <h2
+      class="flex flex-col self-end gap-2 font-extrabold text-center sm:gap-4 text-8xl text-gradient gradient-default sm:self-auto sm:justify-self-end"
+    >
+      <Icon name="logomark" class="h-24 text-white md:h-32" />
+      <div class="tracking-tighter">
+        Build fast<br /> websites,<br /> faster.
       </div>
     </h2>
+    <picture
+      class="self-start w-2/3 max-w-3xl sm:w-10/12 sm:self-auto sm:justify-self-start"
+    >
+      <source type="image/avif" srcset={avifSrcset} {sizes} />
+      <source type="image/webp" srcset={webpSrcset} {sizes} />
+      <source type="image/png" srcset={pngSrcset} {sizes} />
+      <img src={png[1].url} alt="A floating astronaut in a space suit" />
+    </picture>
   </div>
 </section>
+
+<style>
+  @keyframes float {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(0, 30px, 0);
+    }
+  }
+
+  picture {
+    animation: float linear 2.5s infinite alternate;
+  }
+</style>
