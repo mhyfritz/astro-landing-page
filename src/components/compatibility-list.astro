@@ -1,0 +1,33 @@
+---
+import { Icon } from "astro-icon";
+const { title, data, url } = Astro.props;
+---
+
+<div class="w-full max-w-6xl space-y-2">
+  <div class="relative px-6 pt-8 pb-4 border bg-offset border-default">
+    <h3 class="absolute top-0 px-4 py-1 text-xs tracking-tight uppercase -translate-y-1/2 border border-current rounded-full right-4 bg-default">
+      {title}
+    </h3>
+    <ul class="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-6">
+      {data.map(({ title, icon, url }) => (
+        <li>
+          <a
+            class="flex flex-col items-center gap-2 transition-colors duration-200 hover:text-secondary"
+            href={url}
+          >
+            <Icon class="h-12" name={icon} />
+            <span>{title}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+  <p class="text-sm text-right">
+    <a
+      class="transition-colors duration-200 text-primary hover:text-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:ring-secondary"
+      href={url}
+    >
+      ...and more &rarr;
+    </a>
+  </p>
+</div>
