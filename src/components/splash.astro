@@ -9,6 +9,8 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
 const { webp, avif, png } = generateImage("src/assets/astronaut.png", {
   widths,
   formats: ["webp", "avif", "png"],
+  outputDir: "public/assets/images/splash",
+  urlPath: "/assets/images/splash",
 });
 
 const avifSrcset = avif.map(({ srcset }) => srcset).join(",");
