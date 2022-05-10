@@ -1,0 +1,18 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import ShowcaseCard from '~/components/showcase-card.astro';
+import sites from "~/data/showcase/sites.json";
+---
+
+<ContentSection title="Showcase" id="showcase">
+  <Fragment slot="lead">
+    Astro is <span class="text-secondary">versatile</span>.{" "}
+    <span class="text-secondary">Explore</span> what's possible and get{" "}
+    <span class="text-secondary">inspired</span>.
+  </Fragment>
+  <div class="grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    {sites.map(({ title, image, url }) => (
+      <ShowcaseCard {title} {image} {url} />
+    ))}
+  </div>
+</ContentSection>

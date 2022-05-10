@@ -1,0 +1,53 @@
+---
+import { generateImage, generatePlaceholder } from "astro-eleventy-img";
+const { title, image, url } = Astro.props;
+
+const widths = [400, 600, 800];
+const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw)";
+
+const { webp, avif, png } = generateImage(image, {
+  widths,
+  formats: ["webp", "avif", "png"],
+  outputDir: "public/assets/images/showcase",
+  urlPath: "/assets/images/showcase",
+});
+
+const avifSrcset = avif.map(({ srcset }) => srcset).join(",");
+const webpSrcset = webp.map(({ srcset }) => srcset).join(",");
+const pngSrcset = png.map(({ srcset }) => srcset).join(",");
+
+const placeholder = await generatePlaceholder(image);
+---
+
+<a class="group aspect-video" href={url}>
+  <figure class="relative w-full h-full">
+    <picture
+      class="transition-all duration-300 group-hover:scale-110 group-hover:opacity-20"
+    >
+      <source type="image/avif" srcset={avifSrcset} {sizes} />
+      <source type="image/webp" srcset={webpSrcset} {sizes} />
+      <source type="image/png" srcset={pngSrcset} {sizes} />
+      <img
+        class="object-cover w-full h-full bg-cover"
+        src={png[1].url}
+        alt={`A screenshot of ${url}`}
+        loading="lazy"
+        decoding="async"
+        onload="this.style.backgroundImage='none'"
+        width="960"
+        height="540"
+        style={`background-image: url(${placeholder.dataURI});`}
+      />
+    </picture>
+    <figcaption class="absolute inset-0">
+      <div
+        class="flex flex-col items-center justify-center h-full gap-2 transition-all duration-300 opacity-0 group-hover:opacity-100"
+      >
+        <h3 class="text-xl font-extrabold text-center uppercase">
+          {title}
+        </h3>
+        <p class="px-4 py-2 border border-current">{url}</p>
+      </div>
+    </figcaption>
+  </figure>
+</a>
