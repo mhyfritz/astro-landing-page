@@ -2,8 +2,8 @@
 import { generateImage, generatePlaceholder } from "astro-eleventy-img";
 const { title, image, url } = Astro.props;
 
-const widths = [400, 600, 800];
-const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw)";
+const widths = [450, 800];
+const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
 
 const { webp, avif, png } = generateImage(image, {
   widths,

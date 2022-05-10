@@ -13,14 +13,30 @@ import "~/styles/index.css";
     <meta name="viewport" content="width=device-width" />
 
     <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap"
-      rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap"
+      />
+    </noscript>
 
     <title>Astro Landing Page</title>
+    <meta
+      name="description"
+      content="Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience."
+    />
   </head>
   <body
     class="h-full overflow-x-hidden text-base bg-default text-default selection:bg-secondary selection:text-white"

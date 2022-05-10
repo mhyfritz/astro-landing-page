@@ -2,7 +2,7 @@
   --color-primary: theme("colors.indigo.500");
   --color-secondary: theme("colors.pink.500");
   --color-text: theme("colors.gray.900");
-  --color-text-offset: theme("colors.gray.500");
+  --color-text-offset: theme("colors.gray.600");
   --color-background: theme("colors.gray.50");
   --color-background-offset: theme("colors.gray.100");
   --color-border: rgb(17 24 39/0.1); /* gray.900 */
