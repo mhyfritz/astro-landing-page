@@ -2,6 +2,7 @@
 import Compatibility from "~/components/compatibility.astro";
 import Features from "~/components/features.astro";
 import Footer from "~/components/footer.astro";
+import Header from "~/components/header.astro";
 import Intro from "~/components/intro.astro";
 import Showcase from "~/components/showcase.astro";
 import Splash from "~/components/splash.astro";
@@ -42,6 +43,7 @@ import "~/styles/index.css";
   <body
     class="h-full overflow-x-hidden text-base bg-default text-default selection:bg-secondary selection:text-white"
   >
+    <Header />
     <Splash />
     <div class="px-8 py-32 space-y-24">
       <Intro />

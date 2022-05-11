@@ -1,0 +1,124 @@
+---
+import { Icon } from "astro-icon";
+
+const navItems = [
+  { title: "Features", url: "#features" },
+  { title: "Compatibility", url: "#compatibility" },
+  { title: "Showcase", url: "#showcase" },
+];
+---
+
+<header
+  id="page-header"
+  class="absolute bottom-0 z-10 flex items-center justify-between w-full px-8 py-4 text-white transition-colors duration-200 border-b border-transparent"
+>
+  <a class="flex items-center gap-3" href="#">
+    <h1 class="sr-only">Astro</h1>
+    <Icon name="logomark" class="h-10" />
+    <Icon name="wordmark" class="hidden h-4 sm:block" />
+  </a>
+  <div>
+    <nav class="hidden sm:block">
+      <ul class="flex items-center gap-6">
+        {navItems.map(({ title, url }) => (
+          <li>
+            <a
+              class="text-sm transition-colors duration-200 hover:text-secondary"
+              href={url}
+            >
+              {title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <button
+      id="open-nav-button"
+      type="button"
+      class="transition-colors duration-200 sm:hidden hover:text-secondary"
+      aria-label="Navigation"
+    >
+      <Icon pack="mdi" name="menu" class="h-8" />
+    </button>
+    <div id="menu-modal" class="modal" aria-hidden="true">
+      <div class="fixed inset-0 px-8 py-4 bg-default">
+        <div class="space-y-4" role="dialog" aria-modal="true">
+          <header class="text-right">
+            <button
+              id="close-nav-button"
+              type="button"
+              class="transition-colors duration-200 hover:text-secondary"
+              aria-label="Close navigation"
+            >
+              <Icon pack="mdi" name="close" class="h-8" />
+            </button>
+          </header>
+          <div class="flex justify-center">
+            <Icon name="logomark" class="h-16" />
+          </div>
+          <nav>
+            <ul class="flex flex-col">
+              {navItems.map(({ title, url }) => (
+                <li>
+                  <a
+                    class="block py-4 text-xl text-center transition-colors duration-200 hover:text-secondary"
+                    href={url}
+                  >
+                    {title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  import MicroModal from "micromodal";
+
+  const menuModalId = "menu-modal";
+
+  const header = document.querySelector("#page-header");
+  const page = document.documentElement;
+  const menu = document.querySelector(`#${menuModalId} ul`);
+  const openNavButton = document.querySelector("#open-nav-button");
+  const closeNavButton = document.querySelector("#close-nav-button");
+
+  const openMenu = () => {
+    MicroModal.show(menuModalId);
+  };
+
+  const closeMenu = () => {
+    MicroModal.close(menuModalId);
+  };
+
+  openNavButton.addEventListener("click", openMenu);
+  closeNavButton.addEventListener("click", closeMenu);
+
+  document.addEventListener("scroll", () => {
+    const d = page.clientHeight - page.scrollTop - header.offsetHeight;
+    header.classList.toggle("fixed-header", d < 0);
+  });
+
+  menu.addEventListener("click", (event) => {
+    if (event.target.tagName === "A") {
+      closeMenu();
+    }
+  });
+</script>
+
+<style>
+  .fixed-header {
+    @apply fixed top-0 bottom-auto;
+    @apply text-default bg-default border-default;
+  }
+  .modal {
+    @apply hidden;
+  }
+  .modal.is-open {
+    @apply block;
+  }
+</style>
