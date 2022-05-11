@@ -9,6 +9,7 @@ import Splash from "~/components/splash.astro";
 import "~/styles/index.css";
 
 const url = "https://astro-moon-landing.netlify.app/";
+const image = "./social.jpg";
 const description =
   "Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.";
 ---
@@ -45,9 +46,10 @@ const description =
     <meta property="og:title" content="Astro" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="./social.jpg" />
+    <meta property="og:image" content={image} />
     <meta property="og:url" content={url} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={image} />
   </head>
   <body
     class="h-full overflow-x-hidden text-base bg-default text-default selection:bg-secondary selection:text-white"
