@@ -7,6 +7,10 @@ import Intro from "~/components/intro.astro";
 import Showcase from "~/components/showcase.astro";
 import Splash from "~/components/splash.astro";
 import "~/styles/index.css";
+
+const url = "https://astro-moon-landing.netlify.app/";
+const description =
+  "Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.";
 ---
 
 <html lang="en" class="h-full scroll-smooth">
@@ -35,10 +39,15 @@ import "~/styles/index.css";
     </noscript>
 
     <title>Astro Landing Page</title>
-    <meta
-      name="description"
-      content="Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience."
-    />
+    <meta name="description" content={description} />
+
+    <!-- social media -->
+    <meta property="og:title" content="Astro" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="./social.jpg" />
+    <meta property="og:url" content={url} />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body
     class="h-full overflow-x-hidden text-base bg-default text-default selection:bg-secondary selection:text-white"
