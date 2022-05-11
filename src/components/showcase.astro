@@ -6,13 +6,23 @@ import sites from "~/data/showcase/sites.json";
 
 <ContentSection title="Showcase" id="showcase">
   <Fragment slot="lead">
-    Astro is <span class="text-secondary">versatile</span>.{" "}
-    <span class="text-secondary">Explore</span> what's possible and get{" "}
-    <span class="text-secondary">inspired</span>.
+    Astro is <span class="text-primary">versatile</span>.{" "}
+    <span class="text-primary">Explore</span> what's possible and get{" "}
+    <span class="text-primary">inspired</span>.
   </Fragment>
-  <div class="grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-    {sites.map(({ title, image, url }) => (
-      <ShowcaseCard {title} {image} {url} />
-    ))}
+  <div class="max-w-6xl space-y-2">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {sites.map(({ title, image, url }) => (
+        <ShowcaseCard {title} {image} {url} />
+      ))}
+    </div>
+    <p class="text-sm text-right">
+      <a
+        class="transition-colors duration-200 text-primary hover:text-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:ring-secondary"
+        href="https://astro.build/showcase/"
+      >
+        ...and more &rarr;
+      </a>
+    </p>
   </div>
 </ContentSection>
