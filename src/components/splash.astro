@@ -18,15 +18,19 @@ const webpSrcset = webp.map(({ srcset }) => srcset).join(",");
 const pngSrcset = png.map(({ srcset }) => srcset).join(",");
 ---
 
-<section class="h-full bg-black">
+<section class="relative h-full bg-black">
   <Starfield />
   <div class="relative grid h-full sm:grid-cols-2 place-items-center">
     <h2
-      class="flex flex-col self-end gap-2 font-extrabold text-center sm:gap-4 text-8xl text-gradient gradient-default sm:self-auto sm:justify-self-end"
+      class="flex flex-col self-end gap-2 sm:gap-4 sm:self-auto sm:justify-self-end"
     >
       <Icon name="logomark" class="h-24 text-white md:h-32" />
-      <div class="tracking-tighter">
-        Build fast<br /> websites,<br /> faster.
+      <div
+        class="font-extrabold tracking-tighter text-center text-8xl text-gradient gradient-default"
+      >
+        Build fast
+        <br /> websites,
+        <br /> faster.
       </div>
     </h2>
     <picture
