@@ -63,4 +63,14 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
   picture {
     animation: float linear 2.5s infinite alternate;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    picture {
+      @apply animate-none;
+    }
+
+    :global(#starfield) {
+      @apply hidden;
+    }
+  }
 </style>
