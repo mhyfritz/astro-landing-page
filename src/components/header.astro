@@ -88,7 +88,7 @@ const navItems = [
   const closeNavButton = document.querySelector("#close-nav-button");
 
   const openMenu = () => {
-    MicroModal.show(menuModalId);
+    MicroModal.show(menuModalId, { disableScroll: true });
   };
 
   const closeMenu = () => {
