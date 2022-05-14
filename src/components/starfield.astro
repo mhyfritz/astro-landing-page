@@ -57,8 +57,13 @@
   function setup() {
     rafId && cancelAnimationFrame(rafId);
     const { clientWidth: width, clientHeight: height } = container;
-    canvas.width = width;
-    canvas.height = height;
+
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    ctx.scale(dpr, dpr);
 
     for (const star of stars) {
       star.x = Math.random() * width - width / 2;
