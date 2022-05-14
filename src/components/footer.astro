@@ -1,6 +1,6 @@
 ---
-import { generateImage } from "astro-eleventy-img";
 import { Icon } from "astro-icon";
+import HeroImage from "~/components/hero-image.astro";
 
 const links = [
   {
@@ -24,36 +24,11 @@ const links = [
     icon: "fa-brands:twitter",
   },
 ];
-
-const widths = [500, 1200];
-const sizes = "100vw";
-
-const { webp, avif, jpeg } = generateImage("src/assets/moon.jpg", {
-  widths,
-  formats: ["webp", "avif", "jpeg"],
-  outputDir: "public/assets/images/footer",
-  urlPath: "/assets/images/footer",
-});
-
-const avifSrcset = avif.map(({ srcset }) => srcset).join(",");
-const webpSrcset = webp.map(({ srcset }) => srcset).join(",");
-const jpegSrcset = jpeg.map(({ srcset }) => srcset).join(",");
 ---
 
 <footer class="relative flex items-center justify-center h-64">
   <div class="absolute inset-0 overflow-hidden opacity-40">
-    <picture>
-      <source type="image/avif" srcset={avifSrcset} {sizes} />
-      <source type="image/webp" srcset={webpSrcset} {sizes} />
-      <source type="image/jpeg" srcset={jpegSrcset} {sizes} />
-      <img
-        class="object-cover w-full h-full"
-        src={jpeg[1].url}
-        alt="The ridged surface of the moon"
-        width="1200"
-        height="675"
-      />
-    </picture>
+    <HeroImage />
   </div>
   <ul class="relative grid grid-cols-2 gap-4 sm:grid-cols-4">
     {links.map((link) => (

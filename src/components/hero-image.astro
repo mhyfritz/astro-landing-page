@@ -1,0 +1,30 @@
+---
+import { generateImage } from "astro-eleventy-img";
+
+const widths = [450, 800, 1200];
+const sizes = "100vw";
+
+const { webp, avif, jpeg } = generateImage("src/assets/moon.jpg", {
+  widths,
+  formats: ["webp", "avif", "jpeg"],
+  outputDir: "public/assets/images/hero",
+  urlPath: "/assets/images/hero",
+});
+
+const avifSrcset = avif.map(({ srcset }) => srcset).join(",");
+const webpSrcset = webp.map(({ srcset }) => srcset).join(",");
+const jpegSrcset = jpeg.map(({ srcset }) => srcset).join(",");
+---
+
+<picture>
+  <source type="image/avif" srcset={avifSrcset} {sizes} />
+  <source type="image/webp" srcset={webpSrcset} {sizes} />
+  <source type="image/jpeg" srcset={jpegSrcset} {sizes} />
+  <img
+    class="object-cover w-full h-full"
+    src={jpeg[1].url}
+    alt="The ridged surface of the moon"
+    width="800"
+    height="450"
+  />
+</picture>

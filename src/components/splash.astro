@@ -2,6 +2,7 @@
 import { generateImage } from "astro-eleventy-img";
 import { Icon } from "astro-icon";
 import Starfield from "~/components/starfield.astro";
+import HeroImage from "~/components/hero-image.astro";
 
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
@@ -9,8 +10,8 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
 const { webp, avif, png } = generateImage("src/assets/astronaut.png", {
   widths,
   formats: ["webp", "avif", "png"],
-  outputDir: "public/assets/images/splash",
-  urlPath: "/assets/images/splash",
+  outputDir: "public/assets/images/astronaut",
+  urlPath: "/assets/images/astronaut",
 });
 
 const avifSrcset = avif.map(({ srcset }) => srcset).join(",");
@@ -20,6 +21,9 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
 
 <section class="relative h-full bg-black">
   <Starfield />
+  <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
+    <HeroImage />
+  </div>
   <div class="relative grid h-full sm:grid-cols-2 place-items-center">
     <h2
       class="flex flex-col self-end gap-2 sm:gap-4 sm:self-auto sm:justify-self-end"
@@ -40,14 +44,23 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
       <source type="image/webp" srcset={webpSrcset} {sizes} />
       <source type="image/png" srcset={pngSrcset} {sizes} />
       <img
-        src={png[1].url}
+        src={png[0].url}
         alt="A floating astronaut in a space suit"
-        width="800"
-        height="742"
+        width="450"
+        height="418"
       />
     </picture>
   </div>
 </section>
+
+<!-- https://github.com/withastro/compiler/issues/395 -->
+<!-- <noscript>
+  <style>
+    #splash-bg-fallback {
+      @apply block;
+    }
+  </style>
+</noscript> -->
 
 <style>
   @keyframes float {
@@ -71,6 +84,10 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
 
     :global(#starfield) {
       @apply hidden;
+    }
+
+    #splash-bg-fallback {
+      @apply block;
     }
   }
 </style>
