@@ -44,10 +44,11 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
       <source type="image/webp" srcset={webpSrcset} {sizes} />
       <source type="image/png" srcset={pngSrcset} {sizes} />
       <img
+        class="object-cover w-full h-full"
         src={png[0].url}
+        width={png[0].width}
+        height={png[0].height}
         alt="A floating astronaut in a space suit"
-        width="450"
-        height="418"
       />
     </picture>
   </div>

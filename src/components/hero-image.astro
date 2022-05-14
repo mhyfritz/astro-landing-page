@@ -23,8 +23,8 @@ const jpegSrcset = jpeg.map(({ srcset }) => srcset).join(",");
   <img
     class="object-cover w-full h-full"
     src={jpeg[1].url}
+    width={jpeg[1].width}
+    height={jpeg[1].height}
     alt="The ridged surface of the moon"
-    width="800"
-    height="450"
   />
 </picture>

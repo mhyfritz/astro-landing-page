@@ -29,14 +29,14 @@ const placeholder = await generatePlaceholder(image);
       <source type="image/png" srcset={pngSrcset} {sizes} />
       <img
         class="object-cover w-full h-full bg-cover"
-        src={png[1].url}
-        alt={`A screenshot of ${url}`}
+        src={png[0].url}
+        width={png[0].width}
+        height={png[0].height}
         loading="lazy"
         decoding="async"
         onload="this.style.backgroundImage='none'"
-        width="960"
-        height="540"
         style={`background-image: url(${placeholder.dataURI});`}
+        alt={`A screenshot of ${url}`}
       />
     </picture>
     <figcaption class="absolute inset-0">
