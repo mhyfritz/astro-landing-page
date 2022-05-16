@@ -20,15 +20,13 @@ const placeholder = await generatePlaceholder(image);
 ---
 
 <a class="group aspect-video hover:!text-default" href={url}>
-  <figure class="relative w-full h-full">
-    <picture
-      class="transition-all duration-300 group-hover:scale-110 group-hover:opacity-20"
-    >
+  <figure class="relative w-full h-full overflow-hidden">
+    <picture>
       <source type="image/avif" srcset={avifSrcset} {sizes} />
       <source type="image/webp" srcset={webpSrcset} {sizes} />
       <source type="image/png" srcset={pngSrcset} {sizes} />
       <img
-        class="object-cover w-full h-full bg-cover"
+        class="object-cover w-full h-full transition-all duration-300 bg-cover group-hover:scale-110 group-hover:opacity-20"
         src={png[0].url}
         width={png[0].width}
         height={png[0].height}
