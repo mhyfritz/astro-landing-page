@@ -12,22 +12,19 @@ import ContentSection from "~/components/content-section.astro";
     performance meets <span class="text-primary">powerful</span> developer experience.
   </Fragment>
   <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
-    <a href="https://docs.astro.build/" class="link-button">
+    <a
+      href="https://docs.astro.build/"
+      class="flex items-center justify-center gap-3 px-6 py-4 border-2 border-current"
+    >
       <Icon pack="mdi" name="telescope" class="h-8" />
       <span>Read the docs</span>
     </a>
-    <a href="https://astro.new/" class="link-button">
+    <a
+      href="https://astro.new/"
+      class="flex items-center justify-center gap-3 px-6 py-4 border-2 border-current"
+    >
       <Icon pack="mdi" name="rocket" class="h-8" />
       <span>Try it out</span>
     </a>
   </div>
 </ContentSection>
-
-<style>
-  .link-button {
-    @apply flex items-center justify-center gap-3 px-6 py-4;
-    @apply border-2 border-current;
-    @apply transition-colors duration-200;
-    @apply hover:text-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:ring-secondary;
-  }
-</style>

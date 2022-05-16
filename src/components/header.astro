@@ -12,7 +12,7 @@ const navItems = [
   id="page-header"
   class="absolute bottom-0 z-10 flex items-center justify-between w-full px-8 py-4 text-white transition-colors duration-200 border-b border-transparent"
 >
-  <a class="flex items-center gap-3" href="#">
+  <a class="flex items-center gap-3 hover:!text-default" href="#">
     <h1 class="sr-only">Astro</h1>
     <Icon name="logomark" class="h-10" />
     <Icon name="wordmark" class="hidden h-4 sm:block" />
@@ -22,10 +22,7 @@ const navItems = [
       <ul class="flex items-center gap-6">
         {navItems.map(({ title, url }) => (
           <li>
-            <a
-              class="text-sm transition-colors duration-200 hover:text-secondary"
-              href={url}
-            >
+            <a class="text-sm" href={url}>
               {title}
             </a>
           </li>
@@ -35,19 +32,19 @@ const navItems = [
     <button
       id="open-nav-button"
       type="button"
-      class="transition-colors duration-200 sm:hidden hover:text-secondary"
+      class="btn-link sm:hidden"
       aria-label="Navigation"
     >
       <Icon pack="mdi" name="menu" class="h-8" />
     </button>
-    <div id="menu-modal" class="modal" aria-hidden="true">
+    <div id="menu-modal" class="hidden modal" aria-hidden="true">
       <div class="fixed inset-0 px-8 py-4 bg-default">
         <div class="space-y-4" role="dialog" aria-modal="true">
           <header class="text-right">
             <button
               id="close-nav-button"
               type="button"
-              class="transition-colors duration-200 hover:text-secondary"
+              class="btn-link"
               aria-label="Close navigation"
             >
               <Icon pack="mdi" name="close" class="h-8" />
@@ -60,10 +57,7 @@ const navItems = [
             <ul class="flex flex-col">
               {navItems.map(({ title, url }) => (
                 <li>
-                  <a
-                    class="block py-4 text-xl text-center transition-colors duration-200 hover:text-secondary"
-                    href={url}
-                  >
+                  <a class="block py-4 text-xl text-center" href={url}>
                     {title}
                   </a>
                 </li>
@@ -123,9 +117,6 @@ const navItems = [
   .fixed-header {
     @apply fixed top-0 bottom-auto;
     @apply text-default bg-default border-default;
-  }
-  .modal {
-    @apply hidden;
   }
   .modal.is-open {
     @apply block;

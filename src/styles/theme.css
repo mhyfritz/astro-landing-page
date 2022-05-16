@@ -19,11 +19,3 @@
     --color-border: rgb(249 250 251/0.1); /* gray.50 */
   }
 }
-
-.clip-text {
-  @apply text-transparent bg-clip-text;
-}
-
-.gradient-default {
-  @apply bg-gradient-to-br from-indigo-500 via-fuchsia-500 to-pink-500;
-}

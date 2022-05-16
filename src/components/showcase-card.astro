@@ -19,7 +19,7 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
 const placeholder = await generatePlaceholder(image);
 ---
 
-<a class="group aspect-video" href={url}>
+<a class="group aspect-video hover:!text-default" href={url}>
   <figure class="relative w-full h-full">
     <picture
       class="transition-all duration-300 group-hover:scale-110 group-hover:opacity-20"
