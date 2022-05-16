@@ -26,7 +26,7 @@ const placeholder = await generatePlaceholder(image);
       <source type="image/webp" srcset={webpSrcset} {sizes} />
       <source type="image/png" srcset={pngSrcset} {sizes} />
       <img
-        class="object-cover w-full h-full transition-all duration-300 bg-cover group-hover:scale-110 group-hover:opacity-20"
+        class="object-cover w-full h-full transition-all duration-300 bg-cover group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20"
         src={png[0].url}
         width={png[0].width}
         height={png[0].height}
@@ -39,7 +39,7 @@ const placeholder = await generatePlaceholder(image);
     </picture>
     <figcaption class="absolute inset-0">
       <div
-        class="flex flex-col items-center justify-center h-full gap-2 transition-all duration-300 opacity-0 group-hover:opacity-100"
+        class="flex flex-col items-center justify-center h-full gap-2 transition-all duration-300 opacity-0 group-hover:opacity-100 group-focus:opacity-100"
       >
         <h3 class="text-xl font-extrabold text-center uppercase">
           {title}
