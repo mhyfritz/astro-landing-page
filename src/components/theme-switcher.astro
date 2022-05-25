@@ -1,0 +1,56 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<button
+  id="theme-switcher"
+  type="button"
+  class="scale-0 transition-all origin-[right_center] duration-500 -ml-8"
+>
+  <div id="icon-theme-light" class="hidden">
+    <Icon name="theme/light" class="h-8" />
+    <span class="sr-only">Use light theme</span>
+  </div>
+  <div id="icon-theme-dark" class="hidden">
+    <Icon name="theme/dark" class="h-8" />
+    <span class="sr-only">Use dark theme</span>
+  </div>
+</button>
+
+<script>
+  const themes = ["light", "dark"];
+  const button = document.querySelector("#theme-switcher");
+
+  const getThemeCurrent = () => document.documentElement.dataset.theme;
+  const getThemeNext = () => {
+    const themeCurrent = getThemeCurrent();
+    const indexThemeCurrent = themes.indexOf(themeCurrent);
+    return themes[(indexThemeCurrent + 1) % themes.length];
+  };
+
+  const updateIcon = () => {
+    const themeCurrent = getThemeCurrent();
+    document
+      .querySelector(`#icon-theme-${themeCurrent}`)
+      .classList.add("hidden");
+    const themeNext = getThemeNext();
+    document
+      .querySelector(`#icon-theme-${themeNext}`)
+      .classList.remove("hidden");
+  };
+
+  button.addEventListener("click", () => {
+    const themeNext = getThemeNext();
+    document.documentElement.dataset.theme = themeNext;
+    localStorage.setItem("theme", themeNext);
+    updateIcon();
+  });
+
+  updateIcon();
+</script>
+
+<style>
+  :global(.fixed-header) #theme-switcher {
+    @apply scale-100 ml-0;
+  }
+</style>
