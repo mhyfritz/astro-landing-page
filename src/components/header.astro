@@ -19,27 +19,27 @@ const navItems = [
     <Icon name="wordmark" class="hidden h-4 sm:block" />
   </a>
   <div>
-  <div class="flex items-center gap-6">
-    <nav class="hidden sm:block">
-      <ul class="flex items-center gap-6">
-        {navItems.map(({ title, url }) => (
-          <li>
-            <a class="text-sm" href={url}>
-              {title}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-    <button
-      id="open-nav-button"
-      type="button"
-      class="btn sm:hidden"
-      aria-label="Navigation"
-    >
-      <Icon pack="mdi" name="menu" class="h-8" />
-    </button>
-    <ThemeSwitcher />
+    <div class="flex items-center gap-6">
+      <nav class="hidden sm:block">
+        <ul class="flex items-center gap-6">
+          {navItems.map(({ title, url }) => (
+            <li>
+              <a class="text-sm" href={url}>
+                {title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <button
+        id="open-nav-button"
+        type="button"
+        class="btn sm:hidden"
+        aria-label="Navigation"
+      >
+        <Icon pack="mdi" name="menu" class="h-8" />
+      </button>
+      <ThemeSwitcher />
     </div>
     <div id="menu-modal" class="hidden modal" aria-hidden="true">
       <div class="fixed inset-0 px-8 py-4 bg-default">

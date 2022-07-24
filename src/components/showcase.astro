@@ -1,6 +1,6 @@
 ---
 import ContentSection from "~/components/content-section.astro";
-import ShowcaseCard from '~/components/showcase-card.astro';
+import ShowcaseCard from "~/components/showcase-card.astro";
 import sites from "~/data/showcase/sites.json";
 ---
 
@@ -13,7 +13,7 @@ import sites from "~/data/showcase/sites.json";
   <div class="max-w-6xl space-y-2">
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
       {sites.map(({ title, image, url }) => (
-        <ShowcaseCard {title} {image} {url} />
+        <ShowcaseCard title={title} image={image} url={url} />
       ))}
     </div>
     <p class="text-sm text-right">
