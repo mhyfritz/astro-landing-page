@@ -16,7 +16,9 @@ const avifSrcset = avif.map(({ srcset }) => srcset).join(",");
 const webpSrcset = webp.map(({ srcset }) => srcset).join(",");
 const pngSrcset = png.map(({ srcset }) => srcset).join(",");
 
-const placeholder = await generatePlaceholder(image);
+const placeholder = await generatePlaceholder(image, {
+  outputDir: "src/assets/placeholders/showcase",
+});
 ---
 
 <a class="group aspect-video hover:!text-default" href={url}>
