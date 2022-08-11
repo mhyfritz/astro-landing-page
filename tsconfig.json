@@ -9,8 +9,8 @@
     "resolveJsonModule": true,
     // Enable stricter transpilation for better output.
     "isolatedModules": true,
-    // Add type definitions for our Vite runtime.
-    "types": ["vite/client"],
+    // Astro will directly run your TypeScript code, no transpilation needed.
+    "noEmit": true,
     // Alias `src/` to `~`
     "baseUrl": ".",
     "paths": {

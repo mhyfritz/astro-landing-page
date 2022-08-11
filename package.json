@@ -7,12 +7,13 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "astro": "astro",
     "format": "prettier --write .",
     "clean": "rimraf dist node_modules"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^0.2.5",
-    "astro": "^1.0.0-rc.7",
+    "astro": "^1.0.1",
     "astro-eleventy-img": "^0.5.0",
     "astro-icon": "^0.7.3",
     "prettier": "2.7.1",
