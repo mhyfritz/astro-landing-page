@@ -22,13 +22,15 @@ const navItems = [
     <div class="flex items-center gap-6">
       <nav class="hidden sm:block">
         <ul class="flex items-center gap-6">
-          {navItems.map(({ title, url }) => (
-            <li>
-              <a class="text-sm" href={url}>
-                {title}
-              </a>
-            </li>
-          ))}
+          {
+            navItems.map(({ title, url }) => (
+              <li>
+                <a class="text-sm" href={url}>
+                  {title}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </nav>
       <button
@@ -59,13 +61,15 @@ const navItems = [
           </div>
           <nav>
             <ul class="flex flex-col">
-              {navItems.map(({ title, url }) => (
-                <li>
-                  <a class="block py-4 text-xl text-center" href={url}>
-                    {title}
-                  </a>
-                </li>
-              ))}
+              {
+                navItems.map(({ title, url }) => (
+                  <li>
+                    <a class="block py-4 text-xl text-center" href={url}>
+                      {title}
+                    </a>
+                  </li>
+                ))
+              }
             </ul>
           </nav>
         </div>

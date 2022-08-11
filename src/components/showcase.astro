@@ -12,9 +12,11 @@ import sites from "~/data/showcase/sites.json";
   </Fragment>
   <div class="max-w-6xl space-y-2">
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {sites.map(({ title, image, url }) => (
-        <ShowcaseCard title={title} image={image} url={url} />
-      ))}
+      {
+        sites.map(({ title, image, url }) => (
+          <ShowcaseCard title={title} image={image} url={url} />
+        ))
+      }
     </div>
     <p class="text-sm text-right">
       <a class="text-primary" href="https://astro.build/showcase/">
