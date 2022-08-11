@@ -83,7 +83,7 @@ const navItems = [
 
   const menuModalId = "menu-modal";
 
-  const header = document.querySelector("#page-header");
+  const header: HTMLElement = document.querySelector("#page-header");
   const page = document.documentElement;
   const menu = document.querySelector(`#${menuModalId} ul`);
   const openNavButton = document.querySelector("#open-nav-button");
@@ -106,7 +106,7 @@ const navItems = [
   });
 
   menu.addEventListener("click", (event) => {
-    if (event.target.tagName === "A") {
+    if ((event.target as HTMLElement).tagName === "A") {
       closeMenu();
     }
   });

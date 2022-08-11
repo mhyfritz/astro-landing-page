@@ -7,7 +7,13 @@
   const SPEED = 0.1;
 
   class Star {
-    constructor(x, y, z) {
+    x: number;
+    y: number;
+    z: number;
+    xPrev: number;
+    yPrev: number;
+
+    constructor(x = 0, y = 0, z = 0) {
       this.x = x;
       this.y = y;
       this.z = z;
@@ -15,7 +21,7 @@
       this.yPrev = y;
     }
 
-    update(width, height, speed) {
+    update(width: number, height: number, speed: number) {
       this.xPrev = this.x;
       this.yPrev = this.y;
       this.z += speed * 0.0675;
@@ -35,7 +41,7 @@
       }
     }
 
-    draw(ctx) {
+    draw(ctx: CanvasRenderingContext2D) {
       ctx.lineWidth = this.z;
       ctx.beginPath();
       ctx.moveTo(this.x, this.y);
@@ -45,9 +51,9 @@
   }
 
   const stars = Array.from({ length: COUNT }, () => new Star(0, 0, 0));
-  let rafId;
+  let rafId = 0;
 
-  const canvas = document.querySelector("#starfield-canvas");
+  const canvas: HTMLCanvasElement = document.querySelector("#starfield-canvas");
   const ctx = canvas.getContext("2d");
 
   const container = document.querySelector("#starfield");
@@ -55,7 +61,7 @@
   resizeObserver.observe(container);
 
   function setup() {
-    rafId && cancelAnimationFrame(rafId);
+    rafId > 0 && cancelAnimationFrame(rafId);
     const { clientWidth: width, clientHeight: height } = container;
 
     const dpr = window.devicePixelRatio || 1;
