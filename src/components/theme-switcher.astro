@@ -2,10 +2,14 @@
 import { Icon } from "astro-icon";
 ---
 
+<!--
+  negative margin is sum of button width (8) and gap size of flex parent (6)
+  TODO don't hardcode these values
+-->
 <button
   id="theme-switcher"
   type="button"
-  class="scale-0 transition-all origin-[right_center] duration-500 -ml-8"
+  class="scale-0 transition-all origin-[right_center] duration-500 -ml-14"
 >
   <div id="icon-theme-light" class="hidden">
     <Icon name="theme/light" class="h-8" />
