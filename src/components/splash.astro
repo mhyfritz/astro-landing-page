@@ -54,14 +54,13 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
   </div>
 </section>
 
-<!-- https://github.com/withastro/compiler/issues/395 -->
-<!-- <noscript>
+<noscript>
   <style>
     #splash-bg-fallback {
-      @apply block;
+      display: block;
     }
   </style>
-</noscript> -->
+</noscript>
 
 <style>
   @keyframes float {
