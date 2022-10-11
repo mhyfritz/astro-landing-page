@@ -40,9 +40,9 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
     <picture
       class="self-start w-2/3 max-w-3xl sm:w-10/12 sm:self-auto sm:justify-self-start"
     >
-      <source type="image/avif" srcset={avifSrcset} {sizes} />
-      <source type="image/webp" srcset={webpSrcset} {sizes} />
-      <source type="image/png" srcset={pngSrcset} {sizes} />
+      <source type="image/avif" srcset={avifSrcset} sizes={sizes} />
+      <source type="image/webp" srcset={webpSrcset} sizes={sizes} />
+      <source type="image/png" srcset={pngSrcset} sizes={sizes} />
       <img
         class="object-cover w-full h-full"
         src={png[0].url}
