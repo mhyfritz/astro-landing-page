@@ -5,7 +5,7 @@
   --color-text-offset: theme("colors.gray.600");
   --color-background: theme("colors.gray.50");
   --color-background-offset: theme("colors.gray.100");
-  --color-border: rgb(17 24 39/0.1); /* gray.900 */
+  --color-border: theme("colors.gray.900" / 10%);
 }
 
 [data-theme="dark"] {
@@ -15,5 +15,5 @@
   --color-text-offset: theme("colors.gray.400");
   --color-background: theme("colors.gray.900");
   --color-background-offset: theme("colors.gray.800");
-  --color-border: rgb(249 250 251/0.1); /* gray.50 */
+  --color-border: theme("colors.gray.50" / 10%);
 }
