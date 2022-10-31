@@ -1,8 +1,9 @@
 ---
 import { generateImage } from "astro-eleventy-img";
 import { Icon } from "astro-icon";
-import Starfield from "~/components/starfield.astro";
 import HeroImage from "~/components/hero-image.astro";
+import Starfield from "~/components/starfield.astro";
+import GitHubCorner from "./github-corner.astro";
 
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
@@ -21,6 +22,7 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
 
 <section class="relative h-full bg-black">
   <Starfield />
+  <GitHubCorner />
   <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
     <HeroImage />
   </div>
