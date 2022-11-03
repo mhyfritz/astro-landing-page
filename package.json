@@ -15,7 +15,7 @@
   "devDependencies": {
     "@astrojs/tailwind": "^2.1.1",
     "@types/micromodal": "^0.3.3",
-    "astro": "^1.6.1",
+    "astro": "^1.6.2",
     "astro-eleventy-img": "^0.5.0",
     "astro-icon": "^0.8.0",
     "prettier": "2.7.1",
