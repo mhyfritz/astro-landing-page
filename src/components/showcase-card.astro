@@ -1,13 +1,17 @@
 ---
 import { generateImage, generatePlaceholder } from "astro-eleventy-img";
-import type { ImageFormat } from "~/types";
+import type { ImageFormat, ShowcaseSite } from "~/types";
 
-const { title, image, url } = Astro.props;
+export interface Props {
+  site: ShowcaseSite;
+}
+
+const { site } = Astro.props;
 
 const widths = [450, 800];
 const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
 
-const { webp, avif, png } = generateImage(image, {
+const { webp, avif, png } = generateImage(site.image, {
   widths,
   formats: ["webp", "avif", "png"],
   outputDir: "public/assets/images/showcase",
@@ -18,12 +22,12 @@ const avifSrcset = avif.map(({ srcset }: ImageFormat) => srcset).join(",");
 const webpSrcset = webp.map(({ srcset }: ImageFormat) => srcset).join(",");
 const pngSrcset = png.map(({ srcset }: ImageFormat) => srcset).join(",");
 
-const placeholder = await generatePlaceholder(image, {
+const placeholder = await generatePlaceholder(site.image, {
   outputDir: "src/assets/placeholders/showcase",
 });
 ---
 
-<a class="group aspect-video hover:!text-default" href={url}>
+<a class="group aspect-video hover:!text-default" href={site.url}>
   <figure class="relative w-full h-full overflow-hidden">
     <picture>
       <source type="image/avif" srcset={avifSrcset} sizes={sizes} />
@@ -38,7 +42,7 @@ const placeholder = await generatePlaceholder(image, {
         decoding="async"
         onload="this.style.backgroundImage='none'"
         style={`background-image: url(${placeholder.dataURI});`}
-        alt={`A screenshot of ${url}`}
+        alt={`A screenshot of ${site.url}`}
       />
     </picture>
     <figcaption class="absolute inset-0">
@@ -46,9 +50,9 @@ const placeholder = await generatePlaceholder(image, {
         class="flex flex-col items-center justify-center h-full gap-2 transition-all duration-300 opacity-0 group-hover:opacity-100 group-focus:opacity-100"
       >
         <h3 class="text-xl font-extrabold text-center uppercase">
-          {title}
+          {site.title}
         </h3>
-        <p class="px-4 py-2 border border-current">{url}</p>
+        <p class="px-4 py-2 border border-current">{site.url}</p>
       </div>
     </figcaption>
   </figure>
