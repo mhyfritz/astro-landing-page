@@ -1,5 +1,6 @@
 ---
 import { generateImage } from "astro-eleventy-img";
+import type { ImageFormat } from "~/types";
 
 const widths = [450, 800, 1200];
 const sizes = "100vw";
@@ -11,9 +12,9 @@ const { webp, avif, jpeg } = generateImage("src/assets/moon.jpg", {
   urlPath: "/assets/images/hero",
 });
 
-const avifSrcset = avif.map(({ srcset }) => srcset).join(",");
-const webpSrcset = webp.map(({ srcset }) => srcset).join(",");
-const jpegSrcset = jpeg.map(({ srcset }) => srcset).join(",");
+const avifSrcset = avif.map(({ srcset }: ImageFormat) => srcset).join(",");
+const webpSrcset = webp.map(({ srcset }: ImageFormat) => srcset).join(",");
+const jpegSrcset = jpeg.map(({ srcset }: ImageFormat) => srcset).join(",");
 ---
 
 <picture>

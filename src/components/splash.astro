@@ -3,6 +3,7 @@ import { generateImage } from "astro-eleventy-img";
 import { Icon } from "astro-icon";
 import HeroImage from "~/components/hero-image.astro";
 import Starfield from "~/components/starfield.astro";
+import type { ImageFormat } from "~/types";
 import GitHubCorner from "./github-corner.astro";
 
 const widths = [450, 800];
@@ -15,9 +16,9 @@ const { webp, avif, png } = generateImage("src/assets/astronaut.png", {
   urlPath: "/assets/images/astronaut",
 });
 
-const avifSrcset = avif.map(({ srcset }) => srcset).join(",");
-const webpSrcset = webp.map(({ srcset }) => srcset).join(",");
-const pngSrcset = png.map(({ srcset }) => srcset).join(",");
+const avifSrcset = avif.map(({ srcset }: ImageFormat) => srcset).join(",");
+const webpSrcset = webp.map(({ srcset }: ImageFormat) => srcset).join(",");
+const pngSrcset = png.map(({ srcset }: ImageFormat) => srcset).join(",");
 ---
 
 <section class="relative h-full bg-black">

@@ -3,6 +3,8 @@
 </div>
 
 <script>
+  import invariant from "tiny-invariant";
+
   const COUNT = 800;
   const SPEED = 0.1;
 
@@ -53,17 +55,22 @@
   const stars = Array.from({ length: COUNT }, () => new Star(0, 0, 0));
   let rafId = 0;
 
-  const canvas: HTMLCanvasElement = document.querySelector("#starfield-canvas");
+  const canvas = document.querySelector(
+    "#starfield-canvas"
+  ) as HTMLCanvasElement;
+  invariant(canvas, "canvas should not be null");
   const ctx = canvas.getContext("2d");
 
-  const container = document.querySelector("#starfield");
+  const container = document.querySelector("#starfield") as HTMLElement;
+  invariant(container, "container should not be null");
   const resizeObserver = new ResizeObserver(setup);
   resizeObserver.observe(container);
 
   function setup() {
+    invariant(ctx, "canvas context should not be null");
     rafId > 0 && cancelAnimationFrame(rafId);
-    const { clientWidth: width, clientHeight: height } = container;
 
+    const { clientWidth: width, clientHeight: height } = container;
     const dpr = window.devicePixelRatio || 1;
     canvas.width = width * dpr;
     canvas.height = height * dpr;
@@ -84,6 +91,7 @@
   }
 
   function frame() {
+    invariant(ctx, "canvas context should not be null");
     const { clientWidth: width, clientHeight: height } = container;
 
     for (const star of stars) {

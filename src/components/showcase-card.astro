@@ -1,5 +1,7 @@
 ---
 import { generateImage, generatePlaceholder } from "astro-eleventy-img";
+import type { ImageFormat } from "~/types";
+
 const { title, image, url } = Astro.props;
 
 const widths = [450, 800];
@@ -12,9 +14,9 @@ const { webp, avif, png } = generateImage(image, {
   urlPath: "/assets/images/showcase",
 });
 
-const avifSrcset = avif.map(({ srcset }) => srcset).join(",");
-const webpSrcset = webp.map(({ srcset }) => srcset).join(",");
-const pngSrcset = png.map(({ srcset }) => srcset).join(",");
+const avifSrcset = avif.map(({ srcset }: ImageFormat) => srcset).join(",");
+const webpSrcset = webp.map(({ srcset }: ImageFormat) => srcset).join(",");
+const pngSrcset = png.map(({ srcset }: ImageFormat) => srcset).join(",");
 
 const placeholder = await generatePlaceholder(image, {
   outputDir: "src/assets/placeholders/showcase",

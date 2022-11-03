@@ -1,8 +1,9 @@
 ---
 import { Icon } from "astro-icon";
 import ThemeSwitcher from "~/components/theme-switcher.astro";
+import type { NavItem } from "~/types";
 
-const navItems = [
+const navItems: Array<NavItem> = [
   { title: "Features", url: "#features" },
   { title: "Compatibility", url: "#compatibility" },
   { title: "Showcase", url: "#showcase" },
@@ -80,14 +81,20 @@ const navItems = [
 
 <script>
   import MicroModal from "micromodal";
+  import invariant from "tiny-invariant";
 
   const menuModalId = "menu-modal";
 
-  const header: HTMLElement = document.querySelector("#page-header");
+  const header = document.querySelector("#page-header") as HTMLElement;
   const page = document.documentElement;
   const menu = document.querySelector(`#${menuModalId} ul`);
   const openNavButton = document.querySelector("#open-nav-button");
   const closeNavButton = document.querySelector("#close-nav-button");
+
+  invariant(header, "header should not be null");
+  invariant(menu, "menu should not be null");
+  invariant(openNavButton, "openNavButton should not be null");
+  invariant(closeNavButton, "closeNavButton should not be null");
 
   const openMenu = () => {
     MicroModal.show(menuModalId, { disableScroll: true });

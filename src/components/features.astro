@@ -1,8 +1,9 @@
 ---
-import ContentSection from "~/components/content-section.astro";
 import { Icon } from "astro-icon";
+import ContentSection from "~/components/content-section.astro";
+import type { FeatureItem } from "~/types";
 
-const features = [
+const features: Array<FeatureItem> = [
   {
     title: "Bring Your Own Framework",
     description:

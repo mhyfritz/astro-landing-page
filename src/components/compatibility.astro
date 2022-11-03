@@ -1,8 +1,9 @@
 ---
-import ContentSection from "~/components/content-section.astro";
 import CompatibilityList from "~/components/compatibility-list.astro";
+import ContentSection from "~/components/content-section.astro";
+import type { CompatibilityItem } from "~/types";
 
-const frameworks = [
+const frameworks: Array<CompatibilityItem> = [
   {
     title: "React",
     icon: "frameworks/react",
@@ -35,7 +36,7 @@ const frameworks = [
   },
 ];
 
-const platforms = [
+const platforms: Array<CompatibilityItem> = [
   {
     title: "Netlify",
     icon: "platforms/netlify",
@@ -76,13 +77,13 @@ const platforms = [
     and deploy to your favorite <span class="text-primary">platform</span>.
   </Fragment>
   <CompatibilityList
+    items={frameworks}
     title="Frameworks"
-    data={frameworks}
     url="https://docs.astro.build/core-concepts/framework-components/"
   />
   <CompatibilityList
+    items={platforms}
     title="Platforms"
-    data={platforms}
     url="https://docs.astro.build/guides/deploy/"
   />
 </ContentSection>
