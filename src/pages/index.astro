@@ -8,18 +8,19 @@ import Showcase from "~/components/showcase.astro";
 import Splash from "~/components/splash.astro";
 import "~/styles/index.css";
 
-const { site } = Astro;
+const { generator, site } = Astro;
 const image = new URL("social.jpg", site);
 const description =
   "Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.";
 ---
 
+<!DOCTYPE html>
 <html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="generator" content={generator} />
 
     <title>Astro Landing Page</title>
     <meta name="description" content={description} />
