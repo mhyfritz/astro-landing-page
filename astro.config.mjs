@@ -13,7 +13,7 @@ export default defineConfig({
   ],
   vite: {
     ssr: {
-      external: ["@11ty/eleventy-img", "svgo"],
+      external: ["svgo"],
     },
   },
 });

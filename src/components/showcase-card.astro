@@ -1,6 +1,6 @@
 ---
-import { generateImage, generatePlaceholder } from "astro-eleventy-img";
-import type { ImageFormat, ShowcaseSite } from "~/types";
+import { Picture } from "@astrojs/image/components";
+import type { ShowcaseSite } from "~/types";
 
 export interface Props {
   site: ShowcaseSite;
@@ -10,41 +10,17 @@ const { site } = Astro.props;
 
 const widths = [450, 800];
 const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
-
-const { webp, avif, png } = generateImage(site.image, {
-  widths,
-  formats: ["webp", "avif", "png"],
-  outputDir: "public/assets/images/showcase",
-  urlPath: "/assets/images/showcase",
-});
-
-const avifSrcset = avif.map(({ srcset }: ImageFormat) => srcset).join(",");
-const webpSrcset = webp.map(({ srcset }: ImageFormat) => srcset).join(",");
-const pngSrcset = png.map(({ srcset }: ImageFormat) => srcset).join(",");
-
-const placeholder = await generatePlaceholder(site.image, {
-  outputDir: "src/assets/placeholders/showcase",
-});
 ---
 
 <a class="group aspect-video hover:!text-default" href={site.url}>
   <figure class="relative w-full h-full overflow-hidden">
-    <picture>
-      <source type="image/avif" srcset={avifSrcset} sizes={sizes} />
-      <source type="image/webp" srcset={webpSrcset} sizes={sizes} />
-      <source type="image/png" srcset={pngSrcset} sizes={sizes} />
-      <img
-        class="object-cover w-full h-full transition-all duration-300 bg-cover group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20"
-        src={png[0].url}
-        width={png[0].width}
-        height={png[0].height}
-        loading="lazy"
-        decoding="async"
-        onload="this.style.backgroundImage='none'"
-        style={`background-image: url(${placeholder.dataURI});`}
-        alt={`A screenshot of ${site.url}`}
-      />
-    </picture>
+    <Picture
+      class="object-cover w-full h-full transition-all duration-300 bg-cover group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20"
+      src={site.image}
+      widths={widths}
+      sizes={sizes}
+      alt={`A screenshot of ${site.url}`}
+    />
     <figcaption class="absolute inset-0">
       <div
         class="flex flex-col items-center justify-center h-full gap-2 transition-all duration-300 opacity-0 group-hover:opacity-100 group-focus:opacity-100"

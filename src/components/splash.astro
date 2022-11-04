@@ -1,24 +1,13 @@
 ---
-import { generateImage } from "astro-eleventy-img";
+import { Picture } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
+import astronautImage from "~/assets/astronaut.png";
 import HeroImage from "~/components/hero-image.astro";
 import Starfield from "~/components/starfield.astro";
-import type { ImageFormat } from "~/types";
 import GitHubCorner from "./github-corner.astro";
 
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
-
-const { webp, avif, png } = generateImage("src/assets/astronaut.png", {
-  widths,
-  formats: ["webp", "avif", "png"],
-  outputDir: "public/assets/images/astronaut",
-  urlPath: "/assets/images/astronaut",
-});
-
-const avifSrcset = avif.map(({ srcset }: ImageFormat) => srcset).join(",");
-const webpSrcset = webp.map(({ srcset }: ImageFormat) => srcset).join(",");
-const pngSrcset = png.map(({ srcset }: ImageFormat) => srcset).join(",");
 ---
 
 <section class="relative h-full bg-black">
@@ -40,20 +29,18 @@ const pngSrcset = png.map(({ srcset }: ImageFormat) => srcset).join(",");
         <br /> faster.
       </div>
     </h2>
-    <picture
+    <div
+      id="astronaut"
       class="self-start w-2/3 max-w-3xl sm:w-10/12 sm:self-auto sm:justify-self-start"
     >
-      <source type="image/avif" srcset={avifSrcset} sizes={sizes} />
-      <source type="image/webp" srcset={webpSrcset} sizes={sizes} />
-      <source type="image/png" srcset={pngSrcset} sizes={sizes} />
-      <img
+      <Picture
         class="object-cover w-full h-full"
-        src={png[0].url}
-        width={png[0].width}
-        height={png[0].height}
+        src={astronautImage}
+        widths={widths}
+        sizes={sizes}
         alt="A floating astronaut in a space suit"
       />
-    </picture>
+    </div>
   </div>
 </section>
 
@@ -76,12 +63,12 @@ const pngSrcset = png.map(({ srcset }: ImageFormat) => srcset).join(",");
     }
   }
 
-  picture {
+  #astronaut {
     animation: float linear 2.5s infinite alternate;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    picture {
+    #astronaut {
       @apply animate-none;
     }
 

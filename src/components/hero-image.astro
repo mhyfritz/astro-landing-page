@@ -1,31 +1,15 @@
 ---
-import { generateImage } from "astro-eleventy-img";
-import type { ImageFormat } from "~/types";
+import { Picture } from "@astrojs/image/components";
+import moonImage from "~/assets/moon.jpg";
 
 const widths = [450, 800, 1200];
 const sizes = "100vw";
-
-const { webp, avif, jpeg } = generateImage("src/assets/moon.jpg", {
-  widths,
-  formats: ["webp", "avif", "jpeg"],
-  outputDir: "public/assets/images/hero",
-  urlPath: "/assets/images/hero",
-});
-
-const avifSrcset = avif.map(({ srcset }: ImageFormat) => srcset).join(",");
-const webpSrcset = webp.map(({ srcset }: ImageFormat) => srcset).join(",");
-const jpegSrcset = jpeg.map(({ srcset }: ImageFormat) => srcset).join(",");
 ---
 
-<picture>
-  <source type="image/avif" srcset={avifSrcset} sizes={sizes} />
-  <source type="image/webp" srcset={webpSrcset} sizes={sizes} />
-  <source type="image/jpeg" srcset={jpegSrcset} sizes={sizes} />
-  <img
-    class="object-cover w-full h-full"
-    src={jpeg[1].url}
-    width={jpeg[1].width}
-    height={jpeg[1].height}
-    alt="The ridged surface of the moon"
-  />
-</picture>
+<Picture
+  class="object-cover w-full h-full"
+  src={moonImage}
+  widths={widths}
+  sizes={sizes}
+  alt="The ridged surface of the moon"
+/>

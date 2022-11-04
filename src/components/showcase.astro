@@ -1,7 +1,9 @@
 ---
 import ContentSection from "~/components/content-section.astro";
 import ShowcaseCard from "~/components/showcase-card.astro";
-import { sites } from "~/data/showcase";
+import { getShowcase } from "~/data/showcase";
+
+const sites = await getShowcase();
 ---
 
 <ContentSection title="Showcase" id="showcase">

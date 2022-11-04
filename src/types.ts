@@ -23,11 +23,6 @@ export interface NavItem {
 
 export interface ShowcaseSite {
   title: string;
-  image: string;
+  image: ImageMetadata;
   url: string;
-}
-
-// helper type for astro-eleventy-img
-export interface ImageFormat {
-  srcset: string;
 }
