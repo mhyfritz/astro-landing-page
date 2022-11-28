@@ -1,4 +1,5 @@
 ---
+import "@fontsource/inter/variable.css";
 import Compatibility from "~/components/compatibility.astro";
 import Features from "~/components/features.astro";
 import Footer from "~/components/footer.astro";
@@ -24,26 +25,6 @@ const description =
 
     <title>Astro Landing Page</title>
     <meta name="description" content={description} />
-
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap"
-      />
-    </noscript>
 
     <!-- social media -->
     <meta property="og:title" content="Astro" />
