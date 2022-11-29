@@ -12,7 +12,7 @@ const navItems: Array<NavItem> = [
 
 <header
   id="page-header"
-  class="absolute bottom-0 z-20 flex items-center justify-between w-full px-8 py-4 text-white border-b border-transparent"
+  class="absolute bottom-0 z-20 flex w-full items-center justify-between border-b border-transparent px-8 py-4 text-white"
 >
   <a class="flex items-center gap-3 hover:!text-default" href="#">
     <h1 class="sr-only">Astro</h1>
@@ -44,8 +44,8 @@ const navItems: Array<NavItem> = [
       </button>
       <ThemeSwitcher />
     </div>
-    <div id="menu-modal" class="hidden modal" aria-hidden="true">
-      <div class="fixed inset-0 px-8 py-4 bg-default text-default">
+    <div id="menu-modal" class="modal hidden" aria-hidden="true">
+      <div class="fixed inset-0 bg-default px-8 py-4 text-default">
         <div class="space-y-4" role="dialog" aria-modal="true">
           <header class="text-right">
             <button
@@ -65,7 +65,7 @@ const navItems: Array<NavItem> = [
               {
                 navItems.map(({ title, url }) => (
                   <li>
-                    <a class="block py-4 text-xl text-center" href={url}>
+                    <a class="block py-4 text-center text-xl" href={url}>
                       {title}
                     </a>
                   </li>
@@ -130,7 +130,7 @@ const navItems: Array<NavItem> = [
 <style>
   .fixed-header {
     @apply fixed top-0 bottom-auto;
-    @apply text-default bg-default border-default;
+    @apply border-default bg-default text-default;
   }
   .modal.is-open {
     @apply block;

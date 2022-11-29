@@ -16,7 +16,7 @@
 - ♿ Accessible (as measured by https://web.dev/measure/)
 - 🔎 SEO-enabled (as measured by https://web.dev/measure/)
 - 🔗 Open Graph tags for social media sharing
-- 💅 [Astro Prettier](https://github.com/withastro/prettier-plugin-astro) setup
+- 💅 [Prettier](https://prettier.io/) setup for both [Astro](https://github.com/withastro/prettier-plugin-astro) and [Tailwind](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
 
 ## Commands
 

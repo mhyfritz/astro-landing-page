@@ -27,7 +27,7 @@ const links: Array<FooterLink> = [
 ];
 ---
 
-<footer class="relative flex items-center justify-center h-64">
+<footer class="relative flex h-64 items-center justify-center">
   <div class="absolute inset-0 overflow-hidden opacity-40">
     <HeroImage />
   </div>
@@ -36,7 +36,7 @@ const links: Array<FooterLink> = [
       links.map((link) => (
         <li>
           <a
-            class="flex items-center justify-center w-16 h-16 p-4 border-2 border-current rounded-full"
+            class="flex h-16 w-16 items-center justify-center rounded-full border-2 border-current p-4"
             href={link.url}
           >
             <span class="sr-only">{link.description}</span>
