@@ -13,10 +13,10 @@
     "clean": "rimraf dist .astro node_modules"
   },
   "devDependencies": {
-    "@astrojs/image": "^0.17.1",
+    "@astrojs/image": "^0.17.2",
     "@astrojs/tailwind": "^4.0.0",
     "@types/micromodal": "^0.3.3",
-    "astro": "^2.7.2",
+    "astro": "^2.8.0",
     "astro-icon": "^0.8.1",
     "prettier": "2.8.8",
     "prettier-plugin-astro": "^0.10.0",
@@ -25,7 +25,7 @@
     "tailwindcss-fluid-type": "^2.0.3"
   },
   "dependencies": {
-    "@fontsource-variable/inter": "^5.0.3",
+    "@fontsource-variable/inter": "^5.0.4",
     "micromodal": "^0.4.10",
     "sharp": "^0.32.1",
     "tailwindcss": "^3.3.2",
