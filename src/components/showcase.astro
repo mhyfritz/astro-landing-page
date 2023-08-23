@@ -5,10 +5,10 @@ import ShowcaseCard from "~/components/showcase-card.astro";
 
 const featuredSites = await getCollection(
   "showcase",
-  ({ data }) => "featured" in data
+  ({ data }) => "featured" in data,
 );
 const orderedSites = featuredSites.sort(
-  (a, b) => a.data.featured! - b.data.featured!
+  (a, b) => a.data.featured! - b.data.featured!,
 );
 ---
 

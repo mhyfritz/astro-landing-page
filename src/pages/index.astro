@@ -15,7 +15,7 @@ const description =
   "Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
   <head>
     <meta charset="utf-8" />
@@ -42,7 +42,7 @@ const description =
         document.documentElement.dataset.theme = themeSaved;
       } else {
         const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
+          "(prefers-color-scheme: dark)",
         ).matches;
         document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
       }
