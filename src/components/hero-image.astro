@@ -1,12 +1,12 @@
 ---
-import { Picture } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import moonImage from "~/assets/moon.jpg";
 
 const widths = [450, 800, 1200];
 const sizes = "100vw";
 ---
 
-<Picture
+<Image
   class="h-full w-full object-cover"
   src={moonImage}
   widths={widths}

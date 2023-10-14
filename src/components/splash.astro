@@ -1,5 +1,5 @@
 ---
-import { Picture } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import { Icon } from "astro-icon";
 import astronautImage from "~/assets/astronaut.png";
 import HeroImage from "~/components/hero-image.astro";
@@ -33,7 +33,7 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
       id="astronaut"
       class="w-2/3 max-w-3xl self-start sm:w-10/12 sm:self-auto sm:justify-self-start"
     >
-      <Picture
+      <Image
         class="h-full w-full object-cover"
         src={astronautImage}
         widths={widths}
