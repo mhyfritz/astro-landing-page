@@ -1,0 +1,120 @@
+---
+import { Icon } from "astro-icon";
+import ContentSection from "~/components/content-section.astro";
+import type { FeatureItem } from "~/types";
+
+import first from "../assets/certs/01 W3_cdev.pdf";
+import second from "../assets/certs/02 UC_SEO.pdf";
+import third from "../assets/certs/03 OU_student.pdf";
+import fourth from "../assets/certs/04 OU_SCOD.pdf";
+import fifth from "../assets/certs/05 W3_tsweb.pdf";
+import sixth from "../assets/certs/06 UC_AWP.pdf";
+import seventh from "../assets/certs/07 OU_ENTR.pdf";
+import eight from "../assets/certs/10 OU_DATA.pdf";
+import nineth from "../assets/certs/11_webarch.pdf";
+import ten from "../assets/certs/12_designing.pdf";
+
+const features: Array<FeatureItem> = [
+  {
+    title: "Designing User Interfaces",
+    description:
+      "On 01.01.2024, I completed a course on Designing the User Interface, which covered the interplay of text, color, images, and sound to create user-friendly interfaces from OpenLearn.",
+    icon: "mdi:monitor-dashboard",
+    file: ten,
+  },
+  {
+    title: "An Introduction to Web Applications Architecture",
+    description:
+      "On 30.12.2023, I completed a course on web applications architecture, exploring the design and implementation of computer software from OpenLearn.",
+    icon: "mdi:web",
+    file: nineth,
+  },
+  {
+    title: "Data Analysis with Jupyter Notebooks",
+    description:
+      "On 29.12.2023, I completed a 24-hour course on data analysis using Python and Jupyter Notebooks from OpenLearn.",
+    icon: "mdi:poll",
+    file: eight,
+  },
+  {
+    title: "Software Development for Enterprise Systems",
+    description:
+      "On 13.12.2023, I completed a course on current development practices for enterprise systems from OpenLearn.",
+    icon: "mdi:office-building",
+    file: seventh,
+  },
+  {
+    title: "Astro JS & WordPress Development",
+    description:
+      "On 08.12.2023, I mastered Astro JS v4 a/media/veriton/08FE-7E5E/certs/03 OU_student.pdfnd WordPress, including TailwindCSS for styling, through a comprehensive course on Udemy.",
+    icon: "mdi:wordpress",
+    file: sixth,
+  },
+  {
+    title: "Certified TypeScript Developer",
+    description:
+      "On 30.11.2023, I was awarded a certificate of completion for a TypeScript course, verifying my ability to build web applications using TypeScript from W3schools.",
+    icon: "mdi:language-typescript",
+    file: fifth,
+  },
+  {
+    title: "Simple Coding",
+    description:
+      "On 28.11.2023, I completed a course introducing core concepts, jargon, and skills needed to code from OpenLearn.",
+    icon: "mdi:code-tags",
+    file: fourth,
+  },
+  {
+    title: "Being an OU Student",
+    description:
+      "On 05.11.2023, I completed an introduction to studying at The Open University, marking the start of my higher education journey.",
+    icon: "mdi:school-outline",
+    file: third,
+  },
+  {
+    title: "SEO Course",
+    description:
+      "On 28.12.2022, I finished a course on SEO for YouTube and ECommerce, learning advanced techniques for online marketing and search engine optimization on Udemy.",
+    icon: "mdi:google-analytics",
+    file: second,
+  },
+  {
+    title: "Certified C# Developer",
+    description:
+      "On 25.12.2021, I received a certificate of completion for a course on C# programming language, solidifying my software development skills with a focus on .NET technologies from W3schools.",
+    icon: "mdi:language-csharp",
+    file: first,
+  },
+];
+---
+
+<ContentSection title="Achievements" id="achievements">
+  <!-- <Fragment slot="lead">
+    Astro comes <span class="text-primary">batteries included</span>. It takes
+    the best parts of
+    <span class="text-primary">state-of-the-art</span>
+     tools and adds its own <span class="text-primary">innovations</span>.
+  </Fragment> -->
+  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {
+      features.map(({ title, description, icon, file }) => (
+        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
+          <div class="h-16 w-16 rounded-full border-2 border-current p-3">
+            <Icon name={icon} />
+          </div>
+          <p class="text-center font-extrabold text-xl">{title}</p>
+          <p class="text-center text-offset text-sm">{description}</p>
+          {file && (
+            <a
+              class="text-center text-offset underline text-sm"
+              target="_blank"
+              href={file}
+            >
+              View
+            </a>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</ContentSection>
