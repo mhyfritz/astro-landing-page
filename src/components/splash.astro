@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import astronautImage from "~/assets/astronaut.png";
 import HeroImage from "~/components/hero-image.astro";
 import Starfield from "~/components/starfield.astro";
@@ -18,9 +18,9 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
   </div>
   <div class="relative grid h-full place-items-center sm:grid-cols-2">
     <h2
-      class="flex flex-col gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
+      class="flex flex-col items-center gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
     >
-      <Icon name="logomark" class="h-24 text-white md:h-32" />
+      <Icon name="logomark" class="size-24 text-white md:size-32" />
       <div
         class="gradient-text text-center font-extrabold tracking-tighter text-8xl"
       >

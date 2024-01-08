@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import type { CompatibilityItem } from "~/types";
 
 export interface Props {
@@ -23,7 +23,7 @@ const { items, title, url } = Astro.props;
         items.map((item) => (
           <li>
             <a class="flex flex-col items-center gap-2" href={item.url}>
-              <Icon class="h-12" name={item.icon} />
+              <Icon class="size-12" name={item.icon} />
               <span>{item.title}</span>
             </a>
           </li>
