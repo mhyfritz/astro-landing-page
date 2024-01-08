@@ -5,21 +5,21 @@ import type { FeatureItem } from "~/types";
 
 const features: Array<FeatureItem> = [
   {
-    title: "Bring Your Own Framework",
+    title: "Islamic History",
     description:
-      "Build your site using React, Svelte, Vue, Preact, web components, or just plain ol' HTML + JavaScript.",
+      "Mengungkap fakta sejarah kegemilangan dunia Islam di masa lalu",
     icon: "mdi:handshake",
   },
   {
-    title: "100% Static HTML, No JS",
+    title: "New Experience",
     description:
-      "Astro renders your entire page to static HTML, removing all JavaScript from your final build by default.",
+      "Memberi pengalaman baru mengenal dan menyelami dunia Islam lebih dalam",
     icon: "mdi:feather",
   },
   {
-    title: "On-Demand Components",
+    title: "Exclusive Moment",
     description:
-      "Need some JS? Astro can automatically hydrate interactive components when they become visible on the page. If the user never sees it, they never load it.",
+      "Acara expo pertama di Indonesia yang mengangkat tema History Islam ",
     icon: "mdi:directions-fork",
   },
   {
@@ -37,19 +37,13 @@ const features: Array<FeatureItem> = [
   {
     title: "Community",
     description:
-      "Astro is an open source project powered by hundreds of contributors making thousands of individual contributions.",
+      "Bergabung dan bersinergi bersama komunitas muslim dari berbagai generasi",
     icon: "mdi:account-group",
   },
 ];
 ---
 
-<ContentSection title="Features" id="features">
-  <Fragment slot="lead">
-    Astro comes <span class="text-primary">batteries included</span>. It takes
-    the best parts of
-    <span class="text-primary">state-of-the-art</span>
-     tools and adds its own <span class="text-primary">innovations</span>.
-  </Fragment>
+<div class="flex scroll-mt-24 flex-col items-center gap-4 space-y-2">
   <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
     {
       features.map(({ title, description, icon }) => (
@@ -63,4 +57,4 @@ const features: Array<FeatureItem> = [
       ))
     }
   </ul>
-</ContentSection>
+</div>

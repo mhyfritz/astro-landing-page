@@ -15,7 +15,7 @@
   "devDependencies": {
     "@astrojs/tailwind": "^5.0.2",
     "@types/micromodal": "^0.3.3",
-    "astro": "^3.3.0",
+    "astro": "^4.1.1",
     "astro-icon": "^0.8.1",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
