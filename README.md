@@ -1,6 +1,6 @@
-# Astro Landing Page
+[![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
 
-[![Built with Astro](https://astro.badg.es/v1/built-with-astro.svg)](https://astro.build)
+# Astro Landing Page
 
 > An Astro + Tailwind CSS example/template for landing pages.
 
