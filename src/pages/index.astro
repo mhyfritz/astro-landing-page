@@ -1,5 +1,5 @@
 ---
-import "@fontsource-variable/inter";
+import { AstroFont } from "astro-font";
 import Compatibility from "~/components/compatibility.astro";
 import Features from "~/components/features.astro";
 import Footer from "~/components/footer.astro";
@@ -57,6 +57,19 @@ const description =
           }
         });
     </script>
+    <AstroFont
+      config={[
+        {
+          src: [],
+          preload: false,
+          display: "swap",
+          fallback: "serif",
+          name: "Inter Variable",
+          cssVariable: "font-inter",
+          googleFontsURL: 'https://fonts.googleapis.com/css2?family=Inter:wght@100..900',
+        },
+      ]}
+    />
   </head>
   <body
     class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
