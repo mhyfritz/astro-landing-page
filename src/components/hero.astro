@@ -1,0 +1,46 @@
+---
+const personalImageAlt = "Eliasib Cantor";
+import Badge from "./icons/Badge.astro";
+import LinkedInIcon from "./icons/Linkedin.astro";
+import MailIcon from "./icons/Mail.astro";
+import SocialPill from "./SocialPill.astro";
+---
+
+<div class="m-20 max-w-xl">
+    <div class="mb-4 flex gap-4 items-start">
+      <img
+        class="size-20 rounded-full shadow-lg"
+        src="../../public/logo.webp"
+        alt={personalImageAlt}
+      />
+      <a
+        href="https://www.linkedin.com/in/eliasib-cantor-805457231/"
+        target="_blank"
+        rel="noopener"
+        class="flex items-center transition md:justify-center md:hover:scale-105"
+      >
+        <Badge>Disponible para trabajar</Badge>
+      </a>
+    </div>
+    <h1
+      class="font-bold tracking-tight text-gray-800 text-4xl sm:text-5xl dark:text-white text-left"
+    >
+      Hey, soy Eliasib
+    </h1>
+    <p
+      class="mt-6 text-gray-800 text-xl dark:text-gray-300 [&>strong]:font-semibold [&>strong]:text-yellow-500 dark:[&>strong]:text-yellow-200 text-left"
+    >
+      +3 años de experiencia. <strong>Desarrollador de Software y Creador de Contenido sobre Programación</strong> de Colombia 🇪🇸. Especializado en el desarrollo de aplicaciones web únicas.
+    </p>
+    <nav class="mt-8 flex flex-wrap gap-4 justify-start">
+      <SocialPill href="mailto:ecantor.2906@gmail.com">
+        <MailIcon class="size-4" />
+        Contáctame
+      </SocialPill>
+      <SocialPill href="https://www.linkedin.com/in/eliasib-cantor-805457231/">
+        <LinkedInIcon class="size-4" />
+        LinkedIn
+      </SocialPill>
+    </nav>
+  </div>
+  

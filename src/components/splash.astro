@@ -5,6 +5,7 @@ import astronautImage from "~/assets/astronaut.png";
 import HeroImage from "~/components/hero-image.astro";
 import Starfield from "~/components/starfield.astro";
 import GitHubCorner from "./github-corner.astro";
+import Hero from "./hero.astro";
 
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
@@ -20,14 +21,10 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
     <h2
       class="flex flex-col items-center gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
     >
-      <Icon name="logomark" class="size-24 text-white md:size-32" />
       <div
-        class="gradient-text text-center font-extrabold tracking-tighter text-8xl"
+        class="gradient-text text-center font-extrabold tracking-tighter"
       >
-        Build fast
-        <br /> websites,
-        <br /> faster.
-      </div>
+    <Hero />
     </h2>
     <div
       id="astronaut"
@@ -42,7 +39,9 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
         alt="A floating astronaut in a space suit"
       />
     </div>
+    
   </div>
+  
 </section>
 
 <noscript>
@@ -52,6 +51,7 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
     }
   </style>
 </noscript>
+
 
 <style>
   @keyframes float {
