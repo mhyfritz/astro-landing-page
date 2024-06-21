@@ -4,7 +4,7 @@ import { Icon } from "astro-icon/components";
 import astronautImage from "~/assets/astronaut.png";
 import HeroImage from "~/components/hero-image.astro";
 import Starfield from "~/components/starfield.astro";
-import GitHubCorner from "./github-corner.astro";
+// import GitHubCorner from "./github-corner.astro";
 
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
@@ -12,20 +12,18 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
 
 <section class="relative h-full bg-black">
   <Starfield />
-  <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
+ <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
     <HeroImage />
   </div>
   <div class="relative grid h-full place-items-center sm:grid-cols-2">
     <h2
       class="flex flex-col items-center gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
     >
-      <Icon name="logomark" class="size-20 text-white md:size-32" />
+      <!-- <Icon name="logomark" class="size-22 text-white md:size-32" /> -->
       <div
         class="gradient-text text-center font-extrabold tracking-tighter text-6xl md:text-8xl"
       >
-        Build fast
-        <br /> websites,
-        <br /> faster.
+      Pepe Heavyhash
       </div>
     </h2>
     <div
