@@ -3,14 +3,12 @@ import { Icon } from "astro-icon/components";
 import ContentSection from "~/components/content-section.astro";
 ---
 
-<ContentSection title="Pepeheavyhash is more than just a memecoin" id="intro">
-  <Icon slot="eyebrow" name="logomark" class="size-20" />
+<ContentSection title="More than just a memecoin" id="intro">
+  <!-- <Icon slot="eyebrow" name="logomark" class="size-20" /> -->
   <Fragment slot="lead">
-    A testament to the potential of the Kaspa network. 
-    <span class="text-primary">aims to set a new standard for memecoins on Kaspa</span> 
-    <span class="text-primary">With the upcoming</span>  launch of the Kasplex protocol and KRC20 Tokens, 
-    <span class="text-primary">Pepeheavyhash aims to set a new standard</span>
-    for memecoins <span class="text-primary">powerful</span> on Kaspa. 
+    It aims to set a new standard for memecoins on Kaspa. 
+    With the upcoming launch of the Kasplex protocol and KRC20 Tokens,<br>
+    <span class="text-primary">Pepeheavyhash aims to set a new standard for powerful memecoins on Kaspa.</span>
   </Fragment>
   <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
     <a
@@ -18,14 +16,15 @@ import ContentSection from "~/components/content-section.astro";
       class="flex items-center justify-center gap-3 border-2 border-current px-6 py-4"
     >
       <Icon name="mdi:telescope" class="size-8" />
-      <span>Read the docs</span>
+      <span>Whitepaper</span>
     </a>
     <a
       href="https://astro.new/"
       class="flex items-center justify-center gap-3 border-2 border-current px-6 py-4"
     >
       <Icon name="mdi:rocket" class="size-8" />
-      <span>Try it out</span>
+      <span>Mint</span>
     </a>
   </div>
 </ContentSection>
+
