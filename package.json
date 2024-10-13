@@ -20,9 +20,9 @@
     "astro": "^4.6.3",
     "astro-icon": "^1.1.0",
     "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.13.0",
-    "prettier-plugin-tailwindcss": "^0.5.14",
-    "rimraf": "^5.0.5",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "rimraf": "^6.0.1",
     "tailwindcss-fluid-type": "^2.0.6"
   },
   "dependencies": {
